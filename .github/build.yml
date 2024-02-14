@@ -36,11 +36,11 @@ jobs:
               run: dotnet build --no-restore
             
             - name: Publish .NET Project
-              run: dotnet publish src/YOUR_PROJECT_NAME/YOUR_PROJECT_NAME.csproj -c Release -o release --nologo
+              run: dotnet publish blazor/CarnaCode.Core/CarnaCode.Core.csproj -c Release -o release --nologo
             
             - name: Deploy to gh-pages
              uses: peaceiris/actions-gh-pages@v3
                  with:
                     #Necessário criar uma chave ssh
-                    github_token: ${{ secrets.GITHUB_TOKEN }}
+                    github_token: ${{ secrets.SECRET_ACTION }}
                     publish_dir: ./blazor
